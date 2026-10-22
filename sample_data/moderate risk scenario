@@ -1,0 +1,61 @@
+{
+  "s3_buckets": [
+    {
+      "name": "customs-invoices-demo",
+      "block_public_access": {
+        "block_public_acls": true,
+        "ignore_public_acls": true,
+        "block_public_policy": true,
+        "restrict_public_buckets": true
+      },
+      "public": false,
+      "encryption_enabled": true,
+      "versioning_enabled": false,
+      "logging_enabled": false
+    },
+    {
+      "name": "reports-demo",
+      "block_public_access": {
+        "block_public_acls": true,
+        "ignore_public_acls": true,
+        "block_public_policy": true,
+        "restrict_public_buckets": true
+      },
+      "public": false,
+      "encryption_enabled": true,
+      "versioning_enabled": true,
+      "logging_enabled": true
+    }
+  ],
+  "security_groups": [
+    {
+      "id": "sg-demo-web",
+      "ingress": [
+        {
+          "port": 443,
+          "protocol": "tcp",
+          "source": "0.0.0.0/0"
+        }
+      ]
+    }
+  ],
+  "iam_policies": [
+    {
+      "name": "InvoiceReaderPolicy",
+      "statements": [
+        {
+          "action": [
+            "s3:GetObject"
+          ],
+          "resource": [
+            "arn:aws:s3:::customs-invoices-demo/*"
+          ]
+        }
+      ]
+    }
+  ],
+  "account_settings": {
+    "cloudtrail_enabled": true,
+    "security_monitoring_alarm_configured": false
+  }
+}
