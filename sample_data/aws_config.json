@@ -25,19 +25,6 @@
       "encryption_enabled": false,
       "versioning_enabled": false,
       "logging_enabled": false
-    },
-    {
-      "name": "reports-demo",
-      "block_public_access": {
-        "block_public_acls": true,
-        "ignore_public_acls": true,
-        "block_public_policy": true,
-        "restrict_public_buckets": true
-      },
-      "public": false,
-      "encryption_enabled": true,
-      "versioning_enabled": false,
-      "logging_enabled": false
     }
   ],
   "security_groups": [
