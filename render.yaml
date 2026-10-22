@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: cloudsentinel-backend
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.11
+      - key: CORS_ORIGINS
+        value: https://aarshmalik35-afk.github.io,http://localhost:5173,http://127.0.0.1:5173
